@@ -14,7 +14,7 @@ Contact: vranlee@cau.edu.cn or weiranli@u.nus.edu. Any questions or discussion a
 -----
 
 ## Updates
-+ [2025.04] We have released the resources. The full datasets will be relasesd after the paper accepted.
++ [2025.04] We have released the codes of SU-T and MFT25 datasets!
 -----
 
 ## Abstract

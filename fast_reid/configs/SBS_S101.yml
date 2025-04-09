@@ -1,0 +1,13 @@
+_BASE_: ./Base-SBS.yml
+
+MODEL:
+  BACKBONE:
+    NAME: build_resnest_backbone
+    DEPTH: 101x
+    WITH_IBN: False
+
+DATASETS:
+  NAMES: ("MFT25",)
+  TESTS: ("MFT25",)
+
+OUTPUT_DIR: logs/MFT25/REID

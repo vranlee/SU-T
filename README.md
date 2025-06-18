@@ -28,6 +28,121 @@ Multiple object tracking (MOT) technology has made significant progress in terre
     
 + We conduct extensive comparative experiments demonstrating that our tracker achieves state-of-the-art performance on MFT25, with 34.1 HOTA and 44.6 IDF1. Through quantitative analysis, we highlight the fundamental differences between fish tracking and land-based object tracking scenarios.
 
+## Installation Guide
+
+### Prerequisites
+- CUDA >= 10.2
+- Python >= 3.7
+- PyTorch >= 1.7.0
+- Ubuntu 18.04 or later (Windows is also supported but may require additional setup)
+
+### Step-by-Step Installation
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/vranlee/SU-T.git
+   cd SU-T
+   ```
+
+2. **Create and Activate Conda Environment**
+   ```bash
+   # Create environment from yaml file
+   conda env create -f conda_env.yaml
+   
+   # Activate the environment
+   conda activate su_t
+   ```
+
+3. **Download Required Resources**
+   - Download pretrained models from [BaiduYun (Password: 9uqc)](https://pan.baidu.com/s/1AkIuViwXCPz5l5Oo-UgtaQ?pwd=9uqc)
+   - Download MFT25 dataset from [BaiduYun (Password: wrbg)](https://pan.baidu.com/s/11TkRqNIq4poNAU5dyoL5hA?pwd=wrbg)
+
+4. **Organize the Directory Structure**
+   ```
+   SU-T/
+   ├── pretrained/
+   │   └── Checkpoint.pth.tar
+   ├── MFT25/
+   │   ├── train/
+   │   └── test/
+   └── ...
+   ```
+
+## Usage Guide
+
+### Training
+
+1. **Basic Training Command**
+   ```bash
+   python tools/train.py \
+       -f exps/SU-T.py \        # Base model configuration
+       -d 8 \                   # Number of GPUs
+       -b 48 \                  # Batch size
+       --fp16 \                 # Enable mixed precision training
+       -o \                     # Enable occupy GPU memory
+       -c pretrained/Checkpoint.pth.tar  # Path to pretrained weights
+   ```
+
+2. **Training with ReID Module**
+   ```bash
+   python tools/train.py \
+       -f exps/SU-T-ReID.py \   # ReID model configuration
+       -d 8 \
+       -b 48 \
+       --fp16 \
+       -o \
+       -c pretrained/Checkpoint.pth.tar
+   ```
+
+### Testing
+
+1. **Basic Testing Command**
+   ```bash
+   python tools/su_tracker.py \
+       -f exps/SU-T.py \        # Model configuration
+       -b 1 \                   # Batch size
+       -d 1 \                   # Number of GPUs
+       --fp16 \                 # Enable mixed precision
+       --fuse \                 # Enable model fusion
+       --expn your_exp_name     # Experiment name
+   ```
+
+2. **Testing with ReID Module**
+   ```bash
+   python tools/su_tracker.py \
+       -f exps/SU-T-ReID.py \   # ReID model configuration
+       -b 1 \
+       -d 1 \
+       --fp16 \
+       --fuse \
+       --expn your_exp_name
+   ```
+
+### Additional Configuration Options
+
+- **Model Configuration**: Edit `exps/SU-T.py` or `exps/SU-T-ReID.py` to modify:
+  - Learning rate
+  - Training epochs
+  - Data augmentation parameters
+  - Model architecture settings
+
+- **Training Parameters**:
+  ```bash
+  # Additional training options
+  --cache        # Cache images in RAM
+  --resume       # Resume from a specific checkpoint
+  --trt          # Export TensorRT model
+  ```
+
+- **Testing Parameters**:
+  ```bash
+  # Additional testing options
+  --tsize        # Test image size
+  --conf         # Confidence threshold
+  --nms          # NMS threshold
+  --track_thresh # Tracking threshold
+  ```
+
 ## Tracking Performance
 
 ### Comparisons on MFT25 dataset
@@ -52,44 +167,30 @@ Multiple object tracking (MOT) technology has made significant progress in terre
 
 *Note:  † indicates the integration of ReID module, **Bold** indicates the best performance, _italics_ indicate the second-best performance
 
-### Datasets
-The MFT25 dataset have been released on [**\[BaiduYun: wrbg\]**](https://pan.baidu.com/s/11TkRqNIq4poNAU5dyoL5hA?pwd=wrbg).
+## Troubleshooting
 
-## Pretrained Models
-The pretrained models have been released on [**\[BaiduYun: 9uqc\]**](https://pan.baidu.com/s/1AkIuViwXCPz5l5Oo-UgtaQ?pwd=9uqc).
+### Common Issues
 
-## Installation
-+ **Step.1** Clone this repo.
-+ **Step.2** Install dependencies.
-   ```
-   cd {Repo_ROOT}
-   conda env create -f conda_env.yaml
-   conda activate su_t
-   ```
-+ **Step.3** (Optional)
-   Download the [pretrained models](https://pan.baidu.com/s/1AkIuViwXCPz5l5Oo-UgtaQ?pwd=9uqc) and [MFT25 dataset](https://pan.baidu.com/s/11TkRqNIq4poNAU5dyoL5hA?pwd=wrbg).
-   ```
-   - ROOT
-      - pretrained
-         - (Download Pretrained Models Here)
-      - MFT25
-         - (Download Datasets Here)
-   ```
+1. **CUDA Out of Memory**
+   - Reduce batch size
+   - Use smaller input resolution
+   - Enable mixed precision training
 
-## Exps.
+2. **Installation Failures**
+   - Ensure CUDA toolkit matches PyTorch version
+   - Try creating environment with `pip` if conda fails
+   - Check system CUDA compatibility
 
-* Train
-   ```
-   python3 tools/train.py -f exps/SU-T(SU-T-ReID).py -d 8 -b 48 --fp16 -o -c pretrained/Checkpoint.pth.tar
-   ```
-
-* Test
-   ```
-   python tools/su_tracker.py -f exps/SU-T(SU-T-ReID).py -b 1 -d 1 --fp16 --fuse --expn your_bash_name
-   ```
+3. **Training Issues**
+   - Verify dataset path and structure
+   - Check GPU memory usage
+   - Monitor learning rate and loss curves
 
 ## Acknowledgement
 A large part of the code is borrowed from [ByteTrack](https://github.com/ifzhang/ByteTrack), [OC_SORT](https://github.com/noahcao/OC_SORT), and [HybridSORT](https://github.com/ymzis69/HybridSORT). Thanks for their wonderful works!
 
 ## Citation
 The citation format will be given after the manuscript is accepted. Using this repo citation if needed now.
+
+## License
+This project is released under the [MIT License](LICENSE).

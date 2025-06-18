@@ -3,7 +3,7 @@
 The official implementation of the paper：
 >  [**When Trackers Date Fish: A Benchmark and Framework for Underwater Multiple Fish Tracking**](https://github.com/vranlee/SU-T)  
 >  Weiran Li, Yeqiang Liu, Qiannan Guo, Yijie Wei, Hwa Liang Leo, Zhenbo Li*
->  [**\[Paper\]**](https://github.com/vranlee/SU-T) [**\[Code\]**](https://github.com/vranlee/SU-T)
+>  [**\[Project\]**](https://vranlee.github.io/SU-T/) [**\[Paper\]**](https://github.com/vranlee/SU-T) [**\[Code\]**](https://github.com/vranlee/SU-T)
 
 <div align="center">
 <img src="assets/Fig.PNG" width="900"/>

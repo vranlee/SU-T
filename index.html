@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SU-T: Underwater Multiple Fish Tracking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: white;
+            color: var(--primary-color);
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .affiliation-logos {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            flex-shrink: 0;
+            align-items: center;
+        }
+
+        .affiliation-logo {
+            height: 70px;
+            width: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* .affiliation-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        } */
+
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .affiliation-logos {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+        }
+
+        .section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .paper-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .paper-link:hover {
+            color: var(--accent-color);
+        }
+
+        .result-table {
+            font-size: 0.9rem;
+        }
+
+        .result-table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .highlight {
+            background-color: rgba(52, 152, 219, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="display-4">When Trackers Date Fish</h1>
+                    <h2 class="h4">A Benchmark and Framework for Underwater Multiple Fish Tracking</h2>
+                    <p class="lead mt-3">
+                        Weiran Li, Yeqiang Liu, Qiannan Guo, Yijie Wei, Hwa Liang Leo, Zhenbo Li*
+                    </p>
+                    <div class="mt-4">
+                        <a href="https://github.com/vranlee/SU-T" class="btn btn-primary me-2">Code</a>
+                        <a href="https://github.com/vranlee/SU-T" class="btn btn-outline-primary">Paper</a>
+                    </div>
+                </div>
+                <!-- Author Affiliations -->
+                <div class="affiliation-logos">
+                    <img src="assets/cau_logo.png" alt="China Agricultural University" class="affiliation-logo">
+                    <img src="assets/nus_logo.png" alt="National University of Singapore" class="affiliation-logo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Abstract Section -->
+    <div class="section">
+        <div class="container">
+            <h2 class="mb-4">Abstract</h2>
+            <p class="lead">
+                Multiple object tracking (MOT) technology has made significant progress in terrestrial applications, but underwater tracking scenarios remain underexplored despite their importance to marine ecology and aquaculture. We present Multiple Fish Tracking Dataset 2025 (MFT25), the first comprehensive dataset specifically designed for underwater multiple fish tracking, featuring 15 diverse video sequences with 408,578 meticulously annotated bounding boxes across 48,066 frames.
+            </p>
+        </div>
+    </div>
+
+    <!-- Key Metrics Section -->
+    <div class="section bg-light">
+        <div class="container">
+            <h2 class="mb-4">Key Results</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="metric-card text-center">
+                        <div class="metric-value">15</div>
+                        <div class="metric-label">Video Sequences</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card text-center">
+                        <div class="metric-value">408K</div>
+                        <div class="metric-label">Annotated Boxes</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card text-center">
+                        <div class="metric-value">34.1</div>
+                        <div class="metric-label">HOTA</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-card text-center">
+                        <div class="metric-value">44.6</div>
+                        <div class="metric-label">IDF1</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Key Features Section -->
+    <div class="section">
+        <div class="container">
+            <h2 class="mb-4">Key Features</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h5">MFT25 Dataset</h3>
+                            <ul>
+                                <li>Multiple Object Tracking (MOT) Benchmark, multiple fish species</li>
+                                <li>15 diverse video sequences</li>
+                                <li>408,578 annotated bounding boxes</li>
+                                <li>48,066 frames</li>
+                                <li>Actual farm collection & laboratory scene collection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h5">SU-T Framework</h3>
+                            <ul>
+                                <li>Unscented Kalman Filter (UKF)</li>
+                                <li>Fish-Intersection-over-Union (FishIoU)</li>
+                                <li>Optimized for non-linear fish swimming</li>
+                                <li>State-of-the-art performance</li>
+                                <li>Specialized for aquatic species</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Downloads Section -->
+    <div class="section bg-light">
+        <div class="container">
+            <h2 class="mb-4">Downloads</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h5">Dataset</h3>
+                            <p>Download the MFT25 dataset from BaiduYun:</p>
+                            <div class="d-grid gap-2">
+                                <a href="https://pan.baidu.com/s/11TkRqNIq4poNAU5dyoL5hA?pwd=wrbg" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download MFT25 Dataset (Password: wrbg)
+                                </a>
+                            </div>
+                            <p class="mt-3 small text-muted">
+                                Dataset includes:
+                                <ul>
+                                    <li>15 video sequences</li>
+                                    <li>Annotation files</li>
+                                    <li>README and documentation</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3 class="h5">Pretrained Models</h3>
+                            <p>Download our pretrained models:</p>
+                            <div class="d-grid gap-2">
+                                <a href="https://pan.baidu.com/s/1AkIuViwXCPz5l5Oo-UgtaQ?pwd=9uqc" class="btn btn-primary" target="_blank">
+                                    <i class="fas fa-download"></i> Download Pretrained Models (Password: 9uqc)
+                                </a>
+                            </div>
+                            <p class="mt-3 small text-muted">
+                                Models include:
+                                <ul>
+                                    <li>SU-T base model</li>
+                                    <li>SU-T with ReID module</li>
+                                    <li>Model checkpoints</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sample Figures Section -->
+    <div class="section">
+        <div class="container">
+            <h2 class="mb-4">Sample Results</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-12 mb-4">
+                    <div class="card">
+                        <img src="assets/Fig.PNG" class="card-img-top" alt="Framework Overview">
+                        <!-- <div class="card-body">
+                            <h5 class="card-title">Framework Overview</h5>
+                            <p class="card-text">Overview of our SU-T framework for underwater multiple fish tracking.</p>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="alert alert-info text-center" role="alert">
+                <i class="fas fa-info-circle"></i>
+                The related evaluation scripts for the datasets can be found in the <a href="https://github.com/vranlee/SU-T" class="paper-link">GitHub repository</a>.
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="section bg-light">
+        <div class="container">
+            <h2 class="mb-4">Performance Comparison</h2>
+            <div class="table-responsive">
+                <table class="table table-bordered result-table">
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Class</th>
+                            <th>Year</th>
+                            <th>HOTA↑</th>
+                            <th>IDF1↑</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FairMOT</td>
+                            <td>JDE</td>
+                            <td>2021</td>
+                            <td>22.226</td>
+                            <td>26.867</td>
+                        </tr>
+                        <tr>
+                            <td>CMFTNet</td>
+                            <td>JDE</td>
+                            <td>2022</td>
+                            <td>22.432</td>
+                            <td>27.659</td>
+                        </tr>
+                        <tr>
+                            <td>TransTrack</td>
+                            <td>TF</td>
+                            <td>2021</td>
+                            <td>30.426</td>
+                            <td>35.215</td>
+                        </tr>
+                        <tr>
+                            <td>TransCenter</td>
+                            <td>TF</td>
+                            <td>2023</td>
+                            <td>27.896</td>
+                            <td>30.278</td>
+                        </tr>
+                        <tr>
+                            <td>TrackFormer</td>
+                            <td>TF</td>
+                            <td>2022</td>
+                            <td>30.361</td>
+                            <td>35.285</td>
+                        </tr>
+                        <tr>
+                            <td>TFMFT</td>
+                            <td>TF</td>
+                            <td>2024</td>
+                            <td>25.440</td>
+                            <td>33.950</td>
+                        </tr>
+                        <tr>
+                            <td>SORT</td>
+                            <td>SDE</td>
+                            <td>2016</td>
+                            <td>29.063</td>
+                            <td>34.119</td>
+                        </tr>
+                        <tr>
+                            <td>ByteTrack</td>
+                            <td>SDE</td>
+                            <td>2022</td>
+                            <td>31.758</td>
+                            <td>40.355</td>
+                        </tr>
+                        <tr>
+                            <td>BoT-SORT</td>
+                            <td>SDE</td>
+                            <td>2022</td>
+                            <td>26.848</td>
+                            <td>36.847</td>
+                        </tr>
+                        <tr>
+                            <td>OC-SORT</td>
+                            <td>SDE</td>
+                            <td>2023</td>
+                            <td>25.017</td>
+                            <td>34.620</td>
+                        </tr>
+                        <tr>
+                            <td>Deep-OC-SORT</td>
+                            <td>SDE</td>
+                            <td>2023</td>
+                            <td>24.848</td>
+                            <td>34.176</td>
+                        </tr>
+                        <tr>
+                            <td>HybridSORT</td>
+                            <td>SDE</td>
+                            <td>2024</td>
+                            <td>32.258</td>
+                            <td>38.421</td>
+                        </tr>
+                        <tr>
+                            <td>HybridSORT†</td>
+                            <td>SDE</td>
+                            <td>2024</td>
+                            <td>32.705</td>
+                            <td>41.727</td>
+                        </tr>
+                        <tr class="table-success">
+                            <td><strong>SU-T (Ours)</strong></td>
+                            <td><strong>SDE</strong></td>
+                            <td><strong>2025</strong></td>
+                            <td><strong>33.351</strong></td>
+                            <td><strong>41.717</strong></td>
+                        </tr>
+                        <tr class="table-success">
+                            <td><strong>SU-T† (Ours)</strong></td>
+                            <td><strong>SDE</strong></td>
+                            <td><strong>2025</strong></td>
+                            <td><strong>34.067</strong></td>
+                            <td><strong>44.643</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section">
+        <div class="container text-center">
+            <h2 class="mb-4">Contact</h2>
+            <p class="lead">
+                For questions and discussions, please contact:
+            </p>
+            <p>
+                <a href="mailto:vranlee@cau.edu.cn" class="paper-link">vranlee@cau.edu.cn</a> or 
+                <a href="mailto:weiranli@u.nus.edu" class="paper-link">weiranli@u.nus.edu</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2025 SU-T Team. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

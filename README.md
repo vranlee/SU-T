@@ -9,19 +9,20 @@ The official implementation of the paper：
 <img src="assets/Fig.PNG" width="900"/>
 </div>
 
-Contact: vranlee@cau.edu.cn or weiranli@u.nus.edu. Any questions or discussion are welcome!
+> Contact: vranlee@cau.edu.cn or weiranli@u.nus.edu. Any questions or discussion are welcome!
+> If like this work, a star 🌟 would be much appreciated!
 
 -----
 
-## Updates
+## 📌Updates
 + [2025.07] Fixed bugs.
 + [2025.04] We have released the MFT25 dataset and codes of SU-T!
 -----
 
-## Abstract
+## 💡Abstract
 Multiple object tracking (MOT) technology has made significant progress in terrestrial applications, but underwater tracking scenarios remain underexplored despite their importance to marine ecology and aquaculture. We present Multiple Fish Tracking Dataset 2025 (MFT25), the first comprehensive dataset specifically designed for underwater multiple fish tracking, featuring 15 diverse video sequences with 408,578 meticulously annotated bounding boxes across 48,066 frames. Our dataset captures various underwater environments, fish species, and challenging conditions including occlusions, similar appearances, and erratic motion patterns. Additionally, we introduce Scale-aware and Unscented Tracker (SU-T), a specialized tracking framework featuring an Unscented Kalman Filter (UKF) optimized for non-linear fish swimming patterns and a novel Fish-Intersection-over-Union (FishIoU) matching that accounts for the unique morphological characteristics of aquatic species. Extensive experiments demonstrate that our SU-T baseline achieves state-of-the-art performance on MFT25, with 34.1 HOTA and 44.6 IDF1, while revealing fundamental differences between fish tracking and terrestrial object tracking scenarios. MFT25 establishes a robust foundation for advancing research in underwater tracking systems with important applications in marine biology, aquaculture monitoring, and ecological conservation.
 
-## Contributions
+## 🏆Contributions
 
 + We introduce MFT25, the first comprehensive multiple fish tracking dataset featuring 15 diverse video sequences with 408,578 meticulously annotated bounding boxes across 48,066 frames, capturing various underwater environments, fish species, and challenging conditions including occlusions, rapid direction changes, and visually similar appearances.
     
@@ -29,7 +30,7 @@ Multiple object tracking (MOT) technology has made significant progress in terre
     
 + We conduct extensive comparative experiments demonstrating that our tracker achieves state-of-the-art performance on MFT25, with 34.1 HOTA and 44.6 IDF1. Through quantitative analysis, we highlight the fundamental differences between fish tracking and land-based object tracking scenarios.
 
-## Installation Guide
+## 🛠️Installation Guide
 
 ### Prerequisites
 - CUDA >= 10.2
@@ -69,7 +70,7 @@ Multiple object tracking (MOT) technology has made significant progress in terre
    └── ...
    ```
 
-## Usage Guide
+## 🍭Usage Guide
 
 ### Training
 
@@ -144,7 +145,7 @@ Multiple object tracking (MOT) technology has made significant progress in terre
   --track_thresh # Tracking threshold
   ```
 
-## Tracking Performance
+## 📜Tracking Performance
 
 ### Comparisons on MFT25 dataset
 
@@ -168,7 +169,7 @@ Multiple object tracking (MOT) technology has made significant progress in terre
 
 *Note:  † indicates the integration of ReID module, **Bold** indicates the best performance, _italics_ indicate the second-best performance
 
-## Troubleshooting
+## ⁉️Troubleshooting
 
 ### Common Issues
 
@@ -187,11 +188,11 @@ Multiple object tracking (MOT) technology has made significant progress in terre
    - Check GPU memory usage
    - Monitor learning rate and loss curves
 
-## Acknowledgement
+## 💕Acknowledgement
 A large part of the code is borrowed from [ByteTrack](https://github.com/ifzhang/ByteTrack), [OC_SORT](https://github.com/noahcao/OC_SORT), and [HybridSORT](https://github.com/ymzis69/HybridSORT). Thanks for their wonderful works!
 
-## Citation
+## 📖Citation
 The citation format will be given after the manuscript is accepted. Using this repo citation if needed now.
 
-## License
+## 📑License
 This project is released under the [MIT License](LICENSE).

@@ -14,6 +14,7 @@ Contact: vranlee@cau.edu.cn or weiranli@u.nus.edu. Any questions or discussion a
 -----
 
 ## Updates
++ [2025.07] Fixed bugs.
 + [2025.04] We have released the MFT25 dataset and codes of SU-T!
 -----
 

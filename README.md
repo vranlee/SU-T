@@ -3,7 +3,7 @@
 The official implementation of the paper：
 >  [**When Trackers Date Fish: A Benchmark and Framework for Underwater Multiple Fish Tracking**](https://vranlee.github.io/SU-T/)  
 >  Weiran Li, Yeqiang Liu, Qiannan Guo, Yijie Wei, Hwa Liang Leo, Zhenbo Li*
->  [**\[Project\]**](https://vranlee.github.io/SU-T/) [**\[Paper\]**](https://github.com/vranlee/SU-T) [**\[Code\]**](https://github.com/vranlee/SU-T)
+>  [**\[Project\]**](https://vranlee.github.io/SU-T/) [**\[Paper\]**](https://arxiv.org/abs/2507.06400) [**\[Code\]**](https://github.com/vranlee/SU-T)
 
 <div align="center">
 <img src="assets/Fig.PNG" width="900"/>
@@ -16,6 +16,7 @@ The official implementation of the paper：
 -----
 
 ## 📌Updates
++ [2025.07] Paper released to arXiv.
 + [2025.07] Fixed bugs.
 + [2025.04] We have released the MFT25 dataset and codes of SU-T!
 -----
@@ -193,7 +194,7 @@ Multiple object tracking (MOT) technology has made significant progress in terre
 A large part of the code is borrowed from [ByteTrack](https://github.com/ifzhang/ByteTrack), [OC_SORT](https://github.com/noahcao/OC_SORT), and [HybridSORT](https://github.com/ymzis69/HybridSORT). Thanks for their wonderful works!
 
 ## 📖Citation
-The citation format will be given after the manuscript is accepted. Using this repo citation if needed now.
+The citation format will be given after the manuscript is accepted. Using arXiv's citation if needed now.
 
 ## 📑License
 This project is released under the [MIT License](LICENSE).

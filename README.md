@@ -16,6 +16,7 @@ The official implementation of the paper：
 -----
 
 ## 📌Updates
++ [2026.04] Testset Eval has been released on [Codabench](https://www.codabench.org/competitions/15922/)!
 + [2025.11] Our paper has been accepted for the AAAI2026 (Oral).
 + [2025.07] Paper released to arXiv.
 + [2025.07] Fixed bugs.
@@ -60,7 +61,7 @@ Multiple object tracking (MOT) technology has made significant progress in terre
 
 3. **Download Required Resources**
    - Download pretrained models from [BaiduYun (Password: 9uqc)](https://pan.baidu.com/s/1AkIuViwXCPz5l5Oo-UgtaQ?pwd=9uqc)
-   - Download MFT25 dataset from [BaiduYun (Password: wrbg)](https://pan.baidu.com/s/11TkRqNIq4poNAU5dyoL5hA?pwd=wrbg)
+   - Download MFT25 dataset from [BaiduYun (Password: wrbg)](https://pan.baidu.com/s/11TkRqNIq4poNAU5dyoL5hA?pwd=wrbg) or [HuggingFace](https://huggingface.co/datasets/Vranlee/MFT25)
 
 4. **Organize the Directory Structure**
    ```

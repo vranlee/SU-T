@@ -196,7 +196,9 @@ Multiple object tracking (MOT) technology has made significant progress in terre
 A large part of the code is borrowed from [ByteTrack](https://github.com/ifzhang/ByteTrack), [OC_SORT](https://github.com/noahcao/OC_SORT), and [HybridSORT](https://github.com/ymzis69/HybridSORT). Thanks for their wonderful works!
 
 ## 📖Citation
-The citation format will be given after the manuscript is accepted. Using arXiv's citation if needed now.
+```bibtex
+@article{Li_Liu_Guo_Wei_Leo_Li_2026, title={When Trackers Date Fish: A Benchmark and Framework for Underwater Multiple Fish Tracking}, volume={40}, url={https://ojs.aaai.org/index.php/AAAI/article/view/37574}, DOI={10.1609/aaai.v40i8.37574}, number={8}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, author={Li, Weiran and Liu, Yeqiang and Guo, Qiannan and Wei, Yijie and Leo, Hwa Liang and Li, Zhenbo}, year={2026}, month={Mar.}, pages={6459–6467} }
+```
 
 ## 📑License
 This project is released under the [MIT License](LICENSE).

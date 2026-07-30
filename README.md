@@ -16,6 +16,7 @@ The official implementation of the paper：
 -----
 
 ## 📌Updates
++ [2026.07] The sister work [TIDE](https://vranlee.github.io/TIDE/) is released on [arXiv](http://arxiv.org/abs/2607.26412) with open-source [code](https://github.com/vranlee/TIDE)!
 + [2026.04] Testset Eval has been released on [Codabench](https://www.codabench.org/competitions/15922/)!
 + [2025.11] Our paper has been accepted for the AAAI2026 (Oral).
 + [2025.07] Paper released to arXiv.
